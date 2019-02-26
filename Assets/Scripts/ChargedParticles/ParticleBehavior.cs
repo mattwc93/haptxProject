@@ -8,6 +8,8 @@ public class ParticleBehavior : MonoBehaviour
   [Range(-1, 1)]
   public float charge;
   private Rigidbody rb;
+  Color chargeColor;
+  Color finalColor;
   private float electroStaticConstant = 5f;
   #endregion
   void Start()
@@ -36,6 +38,29 @@ public class ParticleBehavior : MonoBehaviour
       otherRB.AddForce(direction * electroStaticForce);
     }
   }
+  void Update()
+  {
+    // Code to check our charge and assign a color based on it. Negative charge will lerp between white and blue, and positive between white
+    // and red. Magnitude of charge will determine how blue or red the particle is.
+    float lerpValue = 0f;
+    if (charge < 0)
+    {
+      // since lerping uses value between 0 and 1, if our charge is negative we need to convert it to positive
+      chargeColor = Color.blue;
+      lerpValue = -charge;
+    }
+    else if (charge > 0)
+    {
+      chargeColor = Color.red;
+      lerpValue = charge;
+    }
+    // get our lerped color based on charge:
+    finalColor = Color.Lerp(Color.white, chargeColor, lerpValue);
+    // get our renderer and set the color to our calculated color
+    GetComponent<Renderer>().material.color = finalColor;
+
+    // Set the mass of a particle if it has a positive charge
+  }
   void FixedUpdate()
   {
     // Loop through all other particles in the Particle Tracker, and if they aren't the particle this script is attached to we call our method to calculate and add our force:
@@ -47,4 +72,6 @@ public class ParticleBehavior : MonoBehaviour
       }
     }
   }
+
+
 }
