@@ -53,11 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ButtonPress.cs" />
+     <Compile Include="Assets\Scripts\Button\ButtonPress.cs" />
+     <Compile Include="Assets\Scripts\ChargedParticles\EditorExtensions\ParticleMenu.cs" />
      <Compile Include="Assets\Scripts\ChargedParticles\ParticleBehavior.cs" />
      <Compile Include="Assets\Scripts\ChargedParticles\ParticleTracker.cs" />
-     <Compile Include="Assets\Scripts\ProjectilePhysics\CollisionTimer.cs" />
-     <Compile Include="Assets\Scripts\ProjectilePhysics\ProjectileBehavior.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/mercs/Documents/HaptX_Takehome_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
