@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ButtonPress.cs" />
      <Compile Include="Assets\Scripts\ChargedParticles\ParticleBehavior.cs" />
      <Compile Include="Assets\Scripts\ChargedParticles\ParticleTracker.cs" />
      <Compile Include="Assets\Scripts\ProjectilePhysics\CollisionTimer.cs" />
